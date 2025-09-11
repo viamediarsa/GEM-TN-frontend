@@ -21,7 +21,7 @@ export default function dashboard() {
       <Navbar />
       <div className={styles.dashboard}>
         {/* Game Stats Display */}
-        <div className={styles.dashboardUserName}>Hey' Matt</div>
+        <div className={styles.dashboardUserName}>Hey' Zia</div>
         <div className={styles.gameStats}>
           <div className={styles.statItem}>
             <span className={styles.statLabel}>Plays Today:</span>
