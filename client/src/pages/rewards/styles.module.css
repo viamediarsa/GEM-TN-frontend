@@ -1,0 +1,36 @@
+.rewardsList {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+ 
+
+}
+
+.rewardItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.rewardName {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.rewardDate {
+  font-size: 14px;
+  color: #666;
+}
+
+.line {
+  height: 1px;
+  background: #ddd;
+  margin: 0;
+}

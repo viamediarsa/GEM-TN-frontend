@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "MtnNormal";
+  src: url('./assets/font/MTNBrighterSans-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MTNBold";
+  src: url('./assets/font/MTNBrighterSans-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Global font application */
+* {
+  font-family: 'MtnNormal', 'MTNBold', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'MTNBold', 'MtnNormal', sans-serif;
+  font-weight: bold;
+}
+
+body {
+  font-family: 'MtnNormal', 'MTNBold', sans-serif;
+}

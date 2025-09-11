@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at center, 
+    #f8f8f8 0%, 
+    #e0e0e0 30%, 
+    #c0c0c0 60%, 
+    #a0a0a0 100%);
+  color: #333;
+  /* overflow-x: hidden; */
+  /* overflow-y: hidden; */
+  font-family: 'MtnNormal', 'MTNBold', sans-serif;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    rgba(0, 0, 0, 0.15) 0%, 
+    transparent 10%, 
+    transparent 90%, 
+    rgba(0, 0, 0, 0.15) 100%);
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, 
+    rgba(0, 0, 0, 0.1) 0%, 
+    transparent 15%, 
+    transparent 85%, 
+    rgba(0, 0, 0, 0.1) 100%);
+  pointer-events: none;
+}

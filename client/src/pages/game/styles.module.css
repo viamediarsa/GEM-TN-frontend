@@ -1,0 +1,288 @@
+.gameContainer {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Game Stats */
+.gameStats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.statLabel {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.statValue {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.weeklyProgress {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.progressDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.progressDot.filled {
+  background: #ffd700;
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Pre-Game Options */
+.preGameOptions {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.preGameOptions h2 {
+  font-family: 'MTNBold', 'MtnNormal', sans-serif;
+  font-size: 24px;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.optionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.swapSection h3 {
+  font-family: 'MTNBold', 'MtnNormal', sans-serif;
+  font-size: 18px;
+  color: #333;
+  margin: 0 0 10px 0;
+}
+
+.swapSection p {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 15px 0;
+}
+
+.swapInfo {
+  font-size: 12px;
+  color: #ff6b35;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.swappable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.swappable:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+}
+
+.playOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.readyButton {
+  background: linear-gradient(45deg, #4CAF50, #45a049);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-family: 'MTNBold', 'MtnNormal', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  min-width: 200px;
+}
+
+.readyButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.buyPlayButton {
+  background: linear-gradient(45deg, #ff9800, #f57c00);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 20px;
+  font-family: 'MTNBold', 'MtnNormal', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.buyPlayButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+}
+
+.buyPlayButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.gameHeader {
+  margin-bottom: 30px;
+}
+
+.gameHeader h1 {
+  font-family: 'MTNBold', 'MtnNormal', sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 10px 0;
+}
+
+.gameHeader p {
+  font-family: 'MTNBold', 'MtnNormal', sans-serif;
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+.gameGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gameBlock {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  border-radius: 15px;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.gameBlock.flipped {
+  transform: rotateY(180deg);
+}
+
+.blockFront,
+.blockBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'MTNBold', 'MtnNormal', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.blockFront {
+  background: radial-gradient(ellipse at center, 
+    #fdfdfd 0%, 
+    #f5f5f5 30%, 
+    #eeeeee 60%, 
+    #e0e0e0 100%);
+  color: #333;
+  border: 2px solid #dee2e6;
+}
+
+.blockBack {
+  background: radial-gradient(ellipse at center, 
+    #fdfdfd 0%, 
+    #f5f5f5 30%, 
+    #eeeeee 60%, 
+    #e0e0e0 100%);
+  color: #333;
+  border: 2px solid #dee2e6;
+  transform: rotateY(180deg);
+}
+
+.blockFront span {
+  font-size: 24px;
+  color: #333;
+}
+
+.jackpot {
+  color: #ff6b35 !important;
+  font-size: 12px !important;
+  text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+  animation: jackpotGlow 1s ease-in-out infinite alternate;
+}
+
+
+
+.gameControls {
+  display: flex;
+  justify-content: center;
+}
+
+.resetButton {
+  background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700, #b8860b, #ffd700);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-family: 'MTNBold', 'MtnNormal', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.resetButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
