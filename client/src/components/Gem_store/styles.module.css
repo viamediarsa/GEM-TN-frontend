@@ -44,7 +44,7 @@
     -webkit-overflow-scrolling: touch; /* momentum on iOS */
     overscroll-behavior-x: contain; /* don't bubble to page */
     touch-action: pan-x; /* hint horizontal pan */
-    padding: 0 16px 8px; /* side padding helps indicate overflow */
+    padding: 0 16px 8px; 
     width: 100%;
     cursor: grab;
     scroll-snap-type: x proximity; /* gentle snapping */

@@ -194,7 +194,7 @@
   overscroll-behavior-x: contain; /* prevent parent scrolling */
   touch-action: pan-x; /* hint touch to pan horizontally */
   scroll-snap-type: x proximity; /* easier to reach edges */
-  padding: 8px 16px 24px; /* more right padding for end reach */
+  /* padding: 8px 16px 24px;  */
   width: 100%;
   cursor: grab;
   scroll-padding-left: 8px;
