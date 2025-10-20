@@ -9,7 +9,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
 }
 .StickyHeader {
   position: fixed;
@@ -21,16 +20,16 @@
   border-bottom-left-radius: 32px;
   border-bottom-right-radius: 32px;
   transition: box-shadow 260ms cubic-bezier(0.22, 1, 0.36, 1),
-              transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
-              padding 260ms cubic-bezier(0.22, 1, 0.36, 1),
-              border-radius 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    padding 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 260ms cubic-bezier(0.22, 1, 0.36, 1);
   padding-bottom: 8px;
 }
 
 .StickyCollapsed {
   transform: translateY(-8px);
   padding: 6px 0 6px 0;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
 .HeaderSpacer {
@@ -47,10 +46,10 @@
 .GemImage,
 .GemDiv {
   transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
-              margin 260ms cubic-bezier(0.22, 1, 0.36, 1),
-              font-size 260ms cubic-bezier(0.22, 1, 0.36, 1),
-              top 260ms cubic-bezier(0.22, 1, 0.36, 1),
-              left 260ms cubic-bezier(0.22, 1, 0.36, 1);
+    margin 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    font-size 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    top 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    left 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Collapsed adjustments for a pleasant shrink */
@@ -121,11 +120,9 @@
 }
 
 .HeaderSubText {
-    font-size: 28px;
-    font-weight: 600; 
+  font-size: 28px;
+  font-weight: 600;
 }
-
-
 
 .HeaderImageRight {
   width: 50%;
@@ -137,14 +134,12 @@
   align-items: center;
 }
 
-
-
 .GemImage {
-position: relative;
+  position: relative;
   top: -5px;
   left: -40px;
   height: 130%;
-  
+
   object-fit: fill;
 }
 
@@ -159,13 +154,12 @@ position: relative;
 }
 
 .WeeklyProgress {
- position: relative;
- left: 50%;
- transform: translateX(-50%);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
   width: 91%;
- margin-top: 20px;
+  margin-top: 20px;
   /* background-color: red; */
- 
 }
 
 .WeeklyProgressText {
@@ -177,6 +171,7 @@ position: relative;
   opacity: 0;
   height: 0;
   overflow: hidden;
+  pointer-events: none;
   transition: opacity 200ms ease, height 200ms ease;
 }
 
@@ -217,7 +212,7 @@ position: relative;
   background: #eaeaea;
   scroll-snap-align: start;
   transition: transform 180ms ease, box-shadow 180ms ease;
-  box-shadow: 0 0 0 rgba(0,0,0,0);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   will-change: transform;
 }
 
@@ -227,18 +222,32 @@ position: relative;
   flex: 0 0 8px;
 }
 
-.CarouselItem:nth-child(1) { background: #ffadad; }
-.CarouselItem:nth-child(2) { background: #ffd6a5; }
-.CarouselItem:nth-child(3) { background: #fdffb6; }
-.CarouselItem:nth-child(4) { background: #caffbf; }
-.CarouselItem:nth-child(5) { background: #9bf6ff; }
-.CarouselItem:nth-child(6) { background: #a0c4ff; }
-.CarouselItem:nth-child(7) { background: #bdb2ff; }
+.CarouselItem:nth-child(1) {
+  background: #ffadad;
+}
+.CarouselItem:nth-child(2) {
+  background: #ffd6a5;
+}
+.CarouselItem:nth-child(3) {
+  background: #fdffb6;
+}
+.CarouselItem:nth-child(4) {
+  background: #caffbf;
+}
+.CarouselItem:nth-child(5) {
+  background: #9bf6ff;
+}
+.CarouselItem:nth-child(6) {
+  background: #a0c4ff;
+}
+.CarouselItem:nth-child(7) {
+  background: #bdb2ff;
+}
 
 /* Subtle lift on hover (desktop) */
 .CarouselItem:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 /* Dragging feedback */
@@ -261,9 +270,17 @@ position: relative;
 }
 .WeeklyProgressContainer::before {
   left: 0;
-  background: linear-gradient(90deg, rgba(254,203,1,1) 0%, rgba(254,203,1,0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(254, 203, 1, 1) 0%,
+    rgba(254, 203, 1, 0) 100%
+  );
 }
 .WeeklyProgressContainer::after {
   right: 0;
-  background: linear-gradient(270deg, rgba(254,203,1,1) 0%, rgba(254,203,1,0) 100%);
+  background: linear-gradient(
+    270deg,
+    rgba(254, 203, 1, 1) 0%,
+    rgba(254, 203, 1, 0) 100%
+  );
 }

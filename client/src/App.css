@@ -8,6 +8,7 @@ body {
   color: #333;
   font-family: 'MtnNormal', 'MTNBold', sans-serif;
   position: relative;
+  padding: 0;
 }
 
 body::before {
