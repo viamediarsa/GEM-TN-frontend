@@ -1,0 +1,159 @@
+.flip_any_tile {
+  position: relative;
+  margin-top: 70px;
+  width: 91%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  border-radius: 28px;
+  background-color: #2f2f2f;
+  color: #fff;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  font-size: 28px;
+  font-weight: 800;
+}
+.subtitle {
+  margin-top: 8px;
+  color: #cfcfcf;
+}
+
+.playsBadge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fecb01;
+  color: #000;
+  border-radius: 999px;
+  padding: 8px 18px;
+  height: 47px;
+  min-width: 100px;
+}
+.badgeTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.badgeIcon {
+  width: 22px;
+  height: 22px;
+}
+.badgeText {
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1;
+}
+.badgeSub {
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+.grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  perspective: 800px;
+  border-radius: 24px;
+}
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  border-radius: 24px;
+  transform-style: preserve-3d;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.flipped .cardInner {
+  transform: rotateY(180deg);
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 24px;
+}
+.cardFront {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #f4f4f4, #d9d9d9);
+  color: #9a9a9a;
+  font-weight: 800;
+}
+.frontLogo {
+  margin-top: 6px;
+  font-size: 18px;
+  background: #eaeaea;
+  color: #8a8a8a;
+  padding: 8px 16px;
+  border-radius: 24px;
+}
+.frontText {
+  font-size: 16px;
+}
+
+.cardBack {
+  transform: rotateY(180deg);
+  background-size: 80px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fff;
+}
+
+.actionsRow {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+.primaryCta {
+  background: #fecb01;
+  color: #000;
+  border: 0;
+  border-radius: 28px;
+  padding: 16px 28px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex: 1;
+  text-align: center;
+}
+.secondaryCta {
+  background: #fff;
+  color: #000;
+  border: 0;
+  border-radius: 28px;
+  padding: 16px 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex: 1;
+  text-align: center;
+}
+.ctaIcon {
+  width: 20px;
+  height: 20px;
+}

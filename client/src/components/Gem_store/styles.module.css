@@ -1,0 +1,72 @@
+.gem_store {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 32px;
+    margin-bottom: 100px;
+}
+
+.gem_store_content {
+    width: 91%;
+    margin: 0 auto;
+}
+
+.pageTitle {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.section { margin-bottom: 24px; }
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.sectionTitle { font-size: 20px; font-weight: 700; }
+
+.badge {
+    font-size: 12px;
+    padding: 6px 10px;
+    background: #eef1f5;
+    border-radius: 16px;
+}
+
+.carousel {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap; /* keep in one row */
+    -webkit-overflow-scrolling: touch; /* momentum on iOS */
+    overscroll-behavior-x: contain; /* don't bubble to page */
+    touch-action: pan-x; /* hint horizontal pan */
+    padding: 0 16px 8px; /* side padding helps indicate overflow */
+    width: 100%;
+    cursor: grab;
+    scroll-snap-type: x proximity; /* gentle snapping */
+}
+
+.card {
+    flex: 0 0 auto;
+    width: 160px;
+    height: 200px;
+    border-radius: 16px;
+  background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    scroll-snap-align: start;
+}
+
+/* Temporary colorful placeholders for visibility */
+.carousel .card:nth-child(1) { background: #ffadad; }
+.carousel .card:nth-child(2) { background: #ffd6a5; }
+.carousel .card:nth-child(3) { background: #fdffb6; }
+.carousel .card:nth-child(4) { background: #caffbf; }
+.carousel .card:nth-child(5) { background: #9bf6ff; }
+.carousel .card:nth-child(6) { background: #a0c4ff; }
+.carousel .card:nth-child(7) { background: #bdb2ff; }
+.carousel .card:nth-child(8) { background: #ffc6ff; }
+.carousel .card:nth-child(9) { background: #ffe29a; }
