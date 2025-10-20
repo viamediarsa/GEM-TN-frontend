@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import { useEffect, useRef, useState } from "react";
 import HeaderImage from "../../assets/logo.png";
-import Gems from "../../assets/gems.png";
+import Gems from "../../assets/Gems.png";
 
 export default function HeaderCard() {
   const carouselRef = useRef(null);
