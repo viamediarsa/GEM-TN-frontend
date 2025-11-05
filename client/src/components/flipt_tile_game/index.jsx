@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { io } from "socket.io-client";
+import { useEffect, useState, useRef } from "react";
 import http from "../../../http.js";
+import { getUserData } from "../../services/userService";
 import styles from "./styles.module.css";
 import playIcon from "../../assets/game_assets/play.png";
 import binoIcon from "../../assets/game_assets/bino.png";
@@ -9,50 +9,95 @@ import rocketIcon from "../../assets/game_assets/rocket.png";
 export default function FlipTileGame() {
   const [color, setColor] = useState("#ffffff");
   const [tileColor, setTileColor] = useState("#ffffff"); 
-  const [connectionStatus, setConnectionStatus] = useState("Connecting...");
   const [flippedTiles, setFlippedTiles] = useState(new Set());
-  const [playsAvailable, setPlaysAvailable] = useState(5);
+  const [playsAvailable, setPlaysAvailable] = useState(0);
   const [sneakPeakActive, setSneakPeakActive] = useState(false);
+  const colorFailureCountRef = useRef(0);
+  const colorIntervalRef = useRef(null);
 
   useEffect(() => {
-    console.log("🔌 Connecting to:", http.defaults.baseURL);
-    const socket = io(http.defaults.baseURL, {
-      transports: ["websocket"],
-      autoConnect: true,
-    });
+    // Fetch play balance data
+    const fetchPlayBalance = async () => {
+      try {
+        const userData = await getUserData('27768399103', {
+          play_balance: true
+        });
+        console.log('📊 FlipTileGame - User data response:', userData);
+        
+        // Set plays available from API response
+        if (userData?.play_balance !== undefined) {
+          setPlaysAvailable(userData.play_balance);
+        }
+      } catch (error) {
+        console.error('❌ FlipTileGame - Error fetching user data:', error);
+      }
+    };
 
-    socket.on("connect", () => {
-      console.log("✅ Socket connected:", socket.id);
-      setConnectionStatus("Connected");
-    });
+    fetchPlayBalance();
 
-    socket.on("disconnect", () => {
-      console.log("❌ Socket disconnected");
-      setConnectionStatus("Disconnected");
-    });
+    const MAX_FAILURES = 3;
 
-    socket.on("connect_error", (error) => {
-      console.log("❌ Connection error:", error);
-      setConnectionStatus("Connection Error");
-    });
+    // Fetch main color function (flip-tile-color is POST only, so we use main color endpoint)
+    const fetchColor = async () => {
+      // Stop if we've exceeded max failures
+      if (colorFailureCountRef.current >= MAX_FAILURES) {
+        if (colorIntervalRef.current) {
+          clearInterval(colorIntervalRef.current);
+          colorIntervalRef.current = null;
+        }
+        return;
+      }
 
-    // Listen for main color
-    socket.on("color", (newColor) => {
-      console.log("🎨 Received main color:", newColor);
-      setColor(newColor);
-      setTileColor(newColor); // Also update tile color
-    });
+      try {
+        const res = await http.get("/api/frontend/color");
+        const data = res?.data || {};
+        const current = data.currentColor || "#ffffff";
+        colorFailureCountRef.current = 0; // Reset on success
+        setColor(prev => {
+          if (prev !== current) {
+            console.log("🎨 Flip tile game color updated:", current);
+            setTileColor(current); // Also update tile color
+            return current;
+          }
+          return prev;
+        });
+      } catch (err) {
+        // If 404, endpoint doesn't exist - stop immediately without logging
+        if (err?.response?.status === 404) {
+          if (colorIntervalRef.current) {
+            clearInterval(colorIntervalRef.current);
+            colorIntervalRef.current = null;
+          }
+          return;
+        }
+        
+        colorFailureCountRef.current++;
+        if (colorFailureCountRef.current <= MAX_FAILURES) {
+          console.warn("Flip tile game color fetch failed (attempt " + colorFailureCountRef.current + "/" + MAX_FAILURES + "):", err?.message || err);
+        }
+        // Stop polling after max failures
+        if (colorFailureCountRef.current >= MAX_FAILURES) {
+          if (colorIntervalRef.current) {
+            clearInterval(colorIntervalRef.current);
+            colorIntervalRef.current = null;
+          }
+        }
+      }
+    };
 
-    // Listen for tile color
-    socket.on("tile-color", (newTileColor) => {
-      console.log("🎨 Received tile color:", newTileColor);
-      setTileColor(newTileColor);
-    });
+    // Initial fetch
+    fetchColor();
+
+    // Poll for color updates every 10 minutes (flip-tile-color is POST only, so we only poll main color)
+    colorIntervalRef.current = setInterval(fetchColor, 600000);
 
     return () => {
-      console.log("🧹 Cleaning up socket connection");
-      socket.disconnect();
+      if (colorIntervalRef.current) {
+        clearInterval(colorIntervalRef.current);
+        colorIntervalRef.current = null;
+      }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleTileClick = (tileIndex) => {
