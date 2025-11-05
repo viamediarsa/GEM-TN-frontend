@@ -1,18 +1,25 @@
-import styles from "./styles.module.css";
-import HeaderCard from "../../components/Header_card";
-import FlipAnyTile from "../../components/Flip_any_tile";
-import GemStore from "../../components/Gem_store";
-import Footer from "../../components/footer";
+import HeaderCard from "../../components/header_card";
+import styles from "./styles.module.css"; 
+import FlipTileGame from "../../components/flipt_tile_game";
+import GemStore from "../../components/gem_store";
+import RewardsHistory from "../../components/rewards_history";
+import Navbar from "../../components/navbar";
+import DailyChallenges from "../../components/daily_challenges";
 
 export default function Dashboard() {
+
+
   return (
     <>
-      <HeaderCard />
-      <FlipAnyTile />
-      <GemStore />
-
-
-      <Footer/>
+    <div className={styles.dashboard}>
+  
+    <HeaderCard />
+    <FlipTileGame />
+    <DailyChallenges />
+    <GemStore />
+    <RewardsHistory />
+    <Navbar /> 
+    </div>
     </>
   );
 }

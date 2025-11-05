@@ -1,72 +1,93 @@
-.gem_store {
-    position: relative;
-    margin-top: 20px;
-    width: 100%;
-    border-radius: 32px;
-    margin-bottom: 100px;
+.gemStoreCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 723px;
+  width: 99.5%;
+  max-width: 800px;
+  border-radius: 35px;
+  margin-top: 5px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.gem_store_content {
-    width: 91%;
-    margin: 0 auto;
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  margin: 0 0 12px 0;
+  text-align: left;
+  width: 100%;
 }
 
-.pageTitle {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 12px;
+.section {
+  width: 100%;
+  margin-bottom: 40px;
+  display: row;
 }
 
-.section { margin-bottom: 24px; }
-
-.sectionHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
+.sectionTitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  margin: 0 0 20px 0;
+  text-align: left;
 }
 
-.sectionTitle { font-size: 20px; font-weight: 700; }
+/* Custom Carousel Styles */
+.carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
 
-.badge {
-    font-size: 12px;
-    padding: 6px 10px;
-    background: #eef1f5;
-    border-radius: 16px;
+.carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    flex-wrap: nowrap; /* keep in one row */
-    -webkit-overflow-scrolling: touch; /* momentum on iOS */
-    overscroll-behavior-x: contain; /* don't bubble to page */
-    touch-action: pan-x; /* hint horizontal pan */
-    padding: 0 16px 8px; 
-    width: 100%;
-    cursor: grab;
-    scroll-snap-type: x proximity; /* gentle snapping */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #d0d0d0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #666;
 }
 
 .card {
-    flex: 0 0 auto;
-    width: 160px;
-    height: 200px;
-    border-radius: 16px;
-  background: #ffffff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    scroll-snap-align: start;
+  width: 130px;
+  height: 200px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #000;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Temporary colorful placeholders for visibility */
-.carousel .card:nth-child(1) { background: #ffadad; }
-.carousel .card:nth-child(2) { background: #ffd6a5; }
-.carousel .card:nth-child(3) { background: #fdffb6; }
-.carousel .card:nth-child(4) { background: #caffbf; }
-.carousel .card:nth-child(5) { background: #9bf6ff; }
-.carousel .card:nth-child(6) { background: #a0c4ff; }
-.carousel .card:nth-child(7) { background: #bdb2ff; }
-.carousel .card:nth-child(8) { background: #ffc6ff; }
-.carousel .card:nth-child(9) { background: #ffe29a; }
+    

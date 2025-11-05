@@ -1,0 +1,46 @@
+.playsCounterContainer {
+  position: relative;
+  width: 104px;
+  color: #ffffff;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border-radius: 35px;
+  overflow: visible;
+}
+
+.playsCounterImage {
+  position: absolute;
+  left: -31px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 74px;
+  height: 73px;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.playsCounterText {
+  position: relative;
+  left: 10px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 0.5;
+  z-index: 2;
+}
+
+.playsCounterTextNumber {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.playsCounterTextLabel {
+  font-size: 8px;
+  font-weight: bold;
+}

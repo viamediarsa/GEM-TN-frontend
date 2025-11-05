@@ -1,0 +1,158 @@
+.rewardsHistory {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 400px;
+  width: 99.5%;
+  max-width: 800px;
+  border-radius: 35px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #000;
+  transition: height 0.4s ease-in-out;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  color: #000;
+}
+
+.activeButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.activeButton:hover {
+  transform: scale(1.05);
+}
+
+.activeText {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+}
+
+.filterIcon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.rewardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-grow: 1;
+}
+
+.rewardItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 60px;
+}
+
+.rewardItem:last-child {
+  border-bottom: none;
+}
+
+.rewardItem.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  margin: 0;
+}
+
+.rewardName {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+}
+
+.rewardDate {
+  font-size: 14px;
+  color: #000;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.showMoreButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  gap: 4px;
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.showMoreButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.arrowIcon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.arrowDown {
+  transform: rotate(0deg);
+}
+
+.arrowUp {
+  transform: rotate(180deg);
+}
+
+.showMoreText {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+}
+
+.showMoreButton:hover .showMoreText {
+  color: #333;
+}
+
+.showingText {
+  font-size: 10px;
+  color: #000;
+  opacity: 0.8;
+}
+    
