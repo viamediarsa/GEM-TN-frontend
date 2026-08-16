@@ -1,8 +1,19 @@
+const Sentry = require('@sentry/node');
 const express = require('express');
 const path = require('path');
 const shell = require('shelljs');
 const fs = require('fs-extra');
 const axios = require('axios');
+
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+  release: process.env.SENTRY_RELEASE || process.env.RELEASE,
+  environment: process.env.APP_ENV,
+  autoSessionTracking: true,
+  tracesSampleRate: 0.1,
+});
+Sentry.setTag('service', 'gem-tn-frontend');
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 const THEME_API_BASE = process.env.VITE_GEMTN_HOST || 'http://102.182.99.8:4001';
