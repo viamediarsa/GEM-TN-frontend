@@ -1,20 +1,19 @@
-    # Dockerfile
-    FROM node:20
+# Node 20 is EOL for CVE-2026-111497 — use a patched Node line and refresh libbrotli1.
+FROM node:22.23.4-bookworm-slim
 
-    # Set working directory
-    WORKDIR /app
+USER root
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends --only-upgrade libbrotli1 \
+ && rm -rf /var/lib/apt/lists/*
 
-    # Copy package.json and package-lock.json
-    COPY package*.json ./
+WORKDIR /app
 
-    # Install dependencies
-    RUN npm install
+COPY package*.json ./
 
-    # Copy the rest of the application code
-    COPY . .
+RUN npm install
 
-    # Expose the port the app runs on
-    EXPOSE 8080
+COPY . .
 
-    # Start the application using Node.js
-    CMD ["node", "server.js"]
+EXPOSE 8080
+
+CMD ["node", "server.js"]
